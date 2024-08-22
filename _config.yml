@@ -30,7 +30,7 @@ twitter_username: ''
 github_username:  moonprod
 
 # Build settings
-theme: not-pure-poole
+theme: jekyll-theme-yat
 plugins:
   - jekyll-feed
 
