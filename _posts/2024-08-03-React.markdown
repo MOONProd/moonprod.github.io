@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "React 시작"
+date:   2024-08-03 21:25:11 +0900
+categories: start
+---
+
+
+교육에서 React를 본격적으로 배우기 시작했어요.
+일단 `javaScript` 라이브러리로 바닐라 js의 문법공부와 함께 병행하기로 했습니다.
+
+React에는 `Hook`이라는 이벤트가 있는데요.
+이를 잘 활용하여 Component를 구성해야합니다.
+
+가장 자주 쓰이는 훅으로는 `useState` 와 `useEffect` 가 있습니다.
+그 외에도 정말 많은 훅이 존재합니다.
+
+`useState`는 다음과 같은 형식으로 쓰입니다.
+{% highlight javascript %}
+import { useState } from 'react';
+
+const [state, setState] = useState['default'];
+{% endhighlight %}
+
+이 외에도 다양한 React의 개념을 배우고 싶다면 [React docs][react-docs]를 참고하여
+실습도 해보면 좋을 듯 합니다.
+
+[react-docs]: https://ko.react.dev/
