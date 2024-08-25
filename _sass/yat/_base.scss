@@ -190,7 +190,13 @@ pre {
   @extend %clearfix;
 }
 
-
+.page-banner {
+  .page-banner-img {
+    & > *:first-child {
+      opacity: 0.718;
+    }
+  }
+}
 
 /**
  * Clearfix
