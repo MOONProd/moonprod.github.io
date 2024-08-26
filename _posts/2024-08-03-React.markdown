@@ -6,7 +6,7 @@ categories: start
 ---
 
 
-교육에서 React를 본격적으로 배우기 시작했어요.
+교육에서 **React**를 본격적으로 배우기 시작했어요.
 일단 `javaScript` 라이브러리로 바닐라 js의 문법공부와 함께 병행하기로 했습니다.
 
 React에는 `Hook`이라는 이벤트가 있는데요.
@@ -16,13 +16,24 @@ React에는 `Hook`이라는 이벤트가 있는데요.
 그 외에도 정말 많은 훅이 존재합니다.
 
 `useState`는 다음과 같은 형식으로 쓰입니다.
-{% highlight javascript %}
+```javascript
 import { useState } from 'react';
 
-const [state, setState] = useState['default'];
-{% endhighlight %}
+const [state, setState] = useState['default']
+```
 
 이 외에도 다양한 React의 개념을 배우고 싶다면 [React docs][react-docs]를 참고하여
 실습도 해보면 좋을 듯 합니다.
 
 [react-docs]: https://ko.react.dev/
+
+제가 정리해야 할 블로그 리스트를 정리해볼게요
+1. 블로그를 정리 하게 된 계기와 노션->깃 블로그로 내용을 옮김을 정리
+2. React의 시작에 대해 정리
+3. 간단 실습 별로 깨닫게 된 점들 노션에서 뽑아서 정리 (일단 당장 생각나는건 Recoil, localStorage)
+
+>인용구를 작성할 수 있군요\
+이런식으로 줄바꿈은 안되나요?  
+
+---
+oh ho
