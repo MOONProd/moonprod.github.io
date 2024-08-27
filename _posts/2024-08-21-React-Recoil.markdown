@@ -61,7 +61,7 @@ function ClassCalc(props) {
 2. *숫자2* 
 3. *연산자*
 4. *결과*
-5. *결과를 보여주기 위한 boolean 토글*    
+5. *boolean 토글*    
 ---
 atom을 정의하는 방법은 다음과 같습니다.
 ```javascript
