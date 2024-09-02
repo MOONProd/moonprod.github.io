@@ -2,7 +2,7 @@
 layout: post
 title:  "React에서 Recoil 시작하기"
 date:   2024-08-20 20:32:09 +0900
-categories: start
+categories: start React
 ---
 
 안녕하세요 한창 *React* 공부를 하고 있는 문소연입니다.
@@ -133,6 +133,6 @@ atom 값 자체가 객체이기 때문에 `setRefer({})`과 같은 형식으로 
 
 코드와 같이 변수명과 `useRecoilValue(atom변수명)`으로 정의해주면 변수명을 통해 바로 접근이 가능합니다.
 
-### 마무리
+### 맺음말
 정말 간단한 `Recoil` 사용법이라 **selector**부분은 사용되지 않았습니다.  
 `selector` 또한 recoil의 기본에 속하기 때문에 알아두고 사용하면 좋을 듯 합니다.
