@@ -13,7 +13,7 @@ css와 관련된 post 1 아 뭐 vh vw 혹은 erm 머 이런거
 
 react useState 와 useEffect 사용법 post 1
 
-리액트에서의 map 사용법 post 1
+**리액트에서의 map 사용법 post 1**
 
 숫자게임 실습 시 비동기로 인한 밀림 현상 post 1 (notion 48일 참조)
 
