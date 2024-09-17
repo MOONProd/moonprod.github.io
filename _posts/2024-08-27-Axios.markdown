@@ -1,0 +1,130 @@
+---
+layout: post
+title:  "Axios를 이용해 서버와 통신하기"
+date:   2024-08-27 10:55:12 +0900
+categories: React
+---
+
+안녕하세요 한창 *React* 공부를 하고 있는 문소연입니다.
+
+React를 구성하며 *서버와 통신*하여 데이터를 주고받아야 합니다. 
+그 때 필요한 서버와의 통신방법에 대해 설명하고자 합니다.   
+대게 `axios`를 통해 통신을 합니다. *Ajax 비동기 통신방식*을 배우기도 했었는데 `axios`는 **ajax의 라이브러리**의 일종입니다.
+
+
+정의를 살펴보자면 `axios`는 **Promise 기반**의 **HTTP 클라이언트**로, 브라우저와 Node.js 환경에서 사용할 수 있습니다.
+
+처음 `axios`를 배울 때는 `Promise`가 무엇인지 크게 신경쓰지 않고 통신방식에 대해서만 집중했었습니다.
+하지만 해당 포스팅을 하며 `Promise`에 대해서 함께 알아볼 수 있었습니다.
+
+---
+
+### Promise
+JavaScript에서 *비동기 작업을 처리*하기 위한 객체로, 미래에 완료될 작업을 나타내는 역할을 합니다. `Promise`는 아직 결과를 알 수 없지만, 미래에 성공 또는 실패 여부에 따라 **값을 제공하겠다는 약속**을 나타냅니다.
+
+1. `Pending` (대기): 초기 상태, 비동기 작업이 아직 완료되지 않은 상태입니다.
+2. `Fulfilled` (이행): 비동기 작업이 성공적으로 완료되어 약속이 이행된 상태입니다. 이때 결과 값이 존재합니다.
+3. `Rejected` (거부): 비동기 작업이 실패하여 약속이 거부된 상태입니다. 이때 거부 사유가 존재합니다.
+
+위와 같은 세 가지의 상태를 가지고 있습니다.
+
+`Axios`는 이러한 *Promise 객체 기반*의 **HTTP 비동기 통신 라이브러리**입니다.
+
+`Axios`에는 `GET`, `POST`, `PUT`, `DELETE` 와 같은 총 네 가지의 요청 방식이 있습니다. 하나씩 살펴보도록 하겠습니다.  
+각 요청 방식마다 가장 기본 사용법을 작성하겠습니다.
+
+---
+
+### Axios.get
+서버로부터 데이터를 **받아오는** 요청입니다.  
+
+```javascript
+axois.get('http://localhost:8080/user');
+```
+대게, `axios.get(url,[, config])`와 같은 형식으로 작성합니다. 예시 코드를 설명하자면, 로컬 서버의 '/user'로 부터 데이터를 받아오는 요청입니다.
+
+`config`같은 경우는 `axios.post(url,[, config])`에서 또 다른 예시 코드로 설명하겠습니다.
+
+예시 코드와 같이 한 줄로도 간단히 데이터를 받아올 수 있지만 *전체적인 구조*로는 다음과 같습니다. 이는 네 가지의 요청 방식 *모두에 해당하는 구조*입니다.
+
+```javascript
+axios.get('https://ureca.com/user?userid=3')
+
+.then(function (response) {
+// 성공 콜백
+})
+.catch(function (error) {
+// 에러 콜백
+})
+.finally(function () {
+// 반드시 실행
+});
+```
+url 내에 존재하는 `?`는 파라미터로, `queryString`을 의미합니다. 즉, *user* 중 *userid가 3*인 user의 **데이터를 요청**하는 것입니다.
+
+---
+### Axios.post
+서버로부터 데이터를 **보내는** 요청입니다. 
+
+앞서 `config`의 설명을 이어 진행하기 위해 예시 코드를 하나를 살펴보겠습니다.
+
+```javascript
+const handleClick = ()=>{
+    onSubmit(person);
+
+    axios.post('http://localhost:8080/person/form',{person})
+    .then(function(response){
+
+    })
+    .catch(function(error){
+
+    });
+    navigate('/list');
+}
+```
+`config`는 여기서 `person` 객체에 해당하는데요. 
+예시 코드에서는 버튼을 클릭했을 때 동작하는 로직을 담고 있습니다.
+버튼을 클릭하면 person이라는 객체로 `submit`이 실행되고 해당 url로 *person 객체*를 **보냅니다**. 따라서, **해당 url로 보낼 데이터**를 명시해주는 것과 같은 의미라고 봐도 무방합니다.
+
+해당 예시코드에서 `.then(성공 콜백)` , `.catch(에러 콜백)`내에 따로 내용을 지정해주지 않았기에 생략 가능합니다.
+
+다만 코드가 제대로 동작하는 확인하는 용도로 `console.log`를 통해 해당 코드를 활용하면 좋습니다.
+
+---
+### Axios.put
+서버로부터 **수정할 데이터를 보내는** 요청입니다.
+
+```javascript
+axios.put(`http://localhost:8080/book/modify`,book, { params: { isbn: isbn } })
+        .then(()=>{
+        console.log('Book updated successfully');
+        navigate('/list');
+        });
+```
+백에서 '/modify'에 수정 sql문을 수행합니다. 그리고 조건 데이터로 `{ params: { isbn: isbn }}` 즉, 도서번호인 isbn이 일치하는 데이터로 값을 보냅니다. `book`은 앞서 살펴본 것과 같이 `book` 객체의 **수정된 정보**를 담고 있습니다.
+
+수정 form에 존재하는 예시코드로 이해하면 쉽습니다.  
+이번 예시 코드에서는 `.then`에 (데이터 전달이 성공했을 경우) 성공했다는 콘솔 출력과 함께 '/list'로 페이지를 이동하도록 설정하였습니다.
+
+---
+### Axios.delete
+서버에게 **삭제할 데이터**를 알려주는 요청입니다.
+
+```javascript
+axios.delete(`http://localhost:8080/book/remove`, { params: { isbn: isbn } })
+.then(()=>{
+    console.log('Deleted successfully');
+    navigate('/list');
+});
+```
+수정 데이터와 같이 isbn이 일치하는 데이터를 찾아 이행되는 로직입니다. 백에서 '/remove'에 삭제 sql문을 수행합니다. 
+
+네 가지의 로직 중 가장 단순하다고 할 수 있습니다.
+
+---
+
+### 맺음말
+생각보다 단순하게 살펴보게 된 것도 같습니다. 처음 `axios`개념을 접했을 때, 작성하면서도 그 기분이 느껴졌습니다. 특히나 서버와 통신하는 개념이다보니 해당 예시 코드만으로는 안 와닿을 수도 있겠다고 생각합니다.  
+저도 아직 공부하고 있는 단계이다 보니, 딱 맞는 예시를 들어 설명하기에 한계가 있다는 생각도 듭니다.. 
+
+[Axios 개념](https://axios-http.com/kr/docs/intro) 링크를 통해 살펴보아도 좋겠습니다. 감사합니다.
