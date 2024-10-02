@@ -27,12 +27,15 @@ localStorage와 sessionStorage에 저장하는 법과 간단한 예시상황 pos
 
 props에 더불어 상속에 관한 post 1
 
-axios 관련 + CORS 정보 post 1 56일 notion 참조
+**axios 관련** + CORS 정보 post 1 56일 notion 참조
 
 STS 어노테이션에 관한 post 1 - 여태 나온 것들 중 유용헸던 것들 위주로
 
 0902 파일업로드기능 60일 notion 참조 post 1
 
 if login token 성공하면 post 1
+
+미니 프로젝트 관련한 post 몇 개 해야함?
+일단 그냥 어려웠던 부분들이 무엇이 있었는지 부터 정리해도 좋을 듯
 
 
