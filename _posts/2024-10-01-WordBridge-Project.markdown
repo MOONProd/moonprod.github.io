@@ -3,6 +3,7 @@ layout: post
 title:  "온라인 양방향 통신 끝말잇기 게임"
 date:   2024-10-01 17:44:07 +0900
 categories: Project
+published: false
 ---
 
 안녕하세요 최근 *프로젝트를 진행*하게 된 문소연입니다.
@@ -14,16 +15,16 @@ categories: Project
 
 ### 로그인 Protected 검사에 대한 진행상황
 
-1. ProtectedRoute에 토큰 검사하는 로직을
-2. RouteList에서 묶어야 할 페이지가 많아지니까
-3. ProtectedLayout으로 한 번에 묶어버리려고
-4. 검사 로직을 Layout으로 옮기고 ProtectedRoute에는 Outlet을 설정
-5. But, 이렇게 할 경우, 로그인이 되었다는 유무를 RouteList에 보내줘야하는데
-6. 그렇게 하려면 이 정보를 recoil로 상태관리 필요
-7. 그래서 상태관리를 하려다보니, 그럴거면 뭐하러 Route랑 Layout을 나눠?
+1. `ProtectedRoute`에 토큰 검사하는 로직을
+2. `RouteList`에서 묶어야 할 페이지가 많아지니까
+3. `ProtectedLayout`으로 한 번에 묶어버리려고
+4. 검사 로직을 Layout으로 옮기고 `ProtectedRoute`에는 `Outlet`을 설정
+5. But, 이렇게 할 경우, 로그인이 되었다는 유무를 `RouteList`에 보내줘야하는데
+6. 그렇게 하려면 이 정보를 `recoil`로 상태관리 필요
+7. 그래서 상태관리를 하려다보니, 그럴거면 뭐하러 `Route`랑 `Layout`을 나눠?
 8. 그냥 전역으로 로그인 상태 관리하는 로직 하나 박아넣고
-9. 마운트될 때, 그거부터 검사해! 그래서 AuthCheck 만들기를 제안받음
-10. 근데 내가 원래 하려던게 ProtectedRoute를 그런 식으로 만들고 싶었던 거잖아
+9. 마운트될 때, 그거부터 검사해! 그래서 `AuthCheck` 만들기를 제안받음
+10. 근데 내가 원래 하려던게 `ProtectedRoute`를 그런 식으로 만들고 싶었던 거잖아
 
 
 ### `ProtectedRoute`의 역할과 상태 관리
