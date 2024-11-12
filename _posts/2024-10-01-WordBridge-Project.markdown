@@ -3,7 +3,7 @@ layout: post
 title:  "온라인 양방향 통신 끝말잇기 게임"
 date:   2024-10-01 17:44:07 +0900
 categories: Project
-published: false
+# published: false
 ---
 
 안녕하세요 최근 *프로젝트를 진행*하게 된 문소연입니다.
